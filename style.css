@@ -1,0 +1,136 @@
+:root {
+    --primary-blue: #007bff;
+    --secondary-blue: #0056b3;
+    --white: #ffffff;
+    --light-gray: #f4f4f4;
+    --dark-text: #333;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-gray);
+    color: var(--dark-text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.header {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 2.5rem 1rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.header p {
+    margin: 0.5rem 0 0;
+    font-size: 1.2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.day-section {
+    background-color: var(--white);
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.day-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
+
+.toggle-icon {
+    font-size: 2rem;
+    color: var(--secondary-blue);
+    transition: transform 0.3s ease;
+}
+
+.matches-container {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.matches-container.open {
+    display: grid;
+}
+
+.match-card {
+    background-color: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.teams {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--dark-text);
+}
+
+.score {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.fantallenatori {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media query per schermi più piccoli */
+@media (max-width: 768px) {
+    .matches-container {
+        grid-template-columns: 1fr;
+    }
+}
