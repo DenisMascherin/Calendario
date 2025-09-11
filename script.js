@@ -447,5 +447,104 @@ function createDaySection(day) {
     container.appendChild(daySection);
 }
 
-// Genera il calendario completo
+// Funzione per calcolare e aggiornare la classifica
+function updateLeaderboard() {
+    const teams = {};
+
+    // Inizializza i dati delle squadre
+    for (const team in fantallenatori) {
+        teams[team] = {
+            punti: 0,
+            giocate: 0,
+            vinte: 0,
+            pareggiate: 0,
+            perse: 0,
+            golFatti: 0,
+            golSubiti: 0,
+            differenzaReti: 0
+        };
+    }
+
+    // Applica penalizzazione al Bologna
+    teams['BOLOGNA'].punti = -2;
+
+    // Calcola i punti in base ai risultati
+    calendario.forEach(day => {
+        day.partite.forEach(match => {
+            if (match.scoreCasa !== null && match.scoreOspite !== null) {
+                const teamCasa = teams[match.casa];
+                const teamOspite = teams[match.ospite];
+
+                // Aggiorna partite giocate
+                teamCasa.giocate++;
+                teamOspite.giocate++;
+
+                // Aggiorna gol
+                teamCasa.golFatti += match.scoreCasa;
+                teamCasa.golSubiti += match.scoreOspite;
+                teamOspite.golFatti += match.scoreOspite;
+                teamOspite.golSubiti += match.scoreCasa;
+                
+                // Aggiorna risultati e punti
+                if (match.scoreCasa > match.scoreOspite) {
+                    teamCasa.punti += 3;
+                    teamCasa.vinte++;
+                    teamOspite.perse++;
+                } else if (match.scoreCasa < match.scoreOspite) {
+                    teamOspite.punti += 3;
+                    teamOspite.vinte++;
+                    teamCasa.perse++;
+                } else {
+                    teamCasa.punti += 1;
+                    teamOspite.punti += 1;
+                    teamCasa.pareggiate++;
+                    teamOspite.pareggiate++;
+                }
+            }
+        });
+    });
+
+    // Calcola la differenza reti
+    for (const team in teams) {
+        teams[team].differenzaReti = teams[team].golFatti - teams[team].golSubiti;
+    }
+
+    // Converti l'oggetto in un array per ordinare
+    const sortedTeams = Object.keys(teams).map(key => ({
+        squadra: key,
+        ...teams[key]
+    }));
+
+    // Ordina la classifica
+    sortedTeams.sort((a, b) => b.punti - a.punti);
+
+    // Crea la tabella HTML della classifica
+    const leaderboardDiv = document.getElementById('leaderboard');
+    let tableHTML = `
+        <table>
+            <thead>
+                <tr>
+                    <th>Pos.</th>
+                    <th>Squadra</th>
+                    <th>Punti</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+    sortedTeams.forEach((team, index) => {
+        tableHTML += `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${team.squadra}</td>
+                <td>${team.punti}</td>
+            </tr>
+        `;
+    });
+    tableHTML += '</tbody></table>';
+
+    leaderboardDiv.innerHTML = tableHTML;
+}
+
+// Genera il calendario e la classifica all'avvio
 calendario.forEach(createDaySection);
+updateLeaderboard();

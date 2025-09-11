@@ -3,6 +3,7 @@
     --secondary-blue: #0056b3;
     --white: #ffffff;
     --light-gray: #f4f4f4;
+    --match-card-color: #e8f4fd; /* Nuovo colore più accattivante */
     --dark-text: #333;
     --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     --border-radius: 12px;
@@ -37,10 +38,50 @@ body {
     font-size: 1.2rem;
 }
 
-.container {
-    max-width: 1200px;
+.main-content-container {
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 1rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap; /* Permette la disposizione su più righe su schermi piccoli */
+}
+
+.container {
+    flex: 3; /* Occupa 3/4 dello spazio su schermi grandi */
+    min-width: 0; /* Evita problemi di overflow */
+}
+
+.sidebar {
+    flex: 1; /* Occupa 1/4 dello spazio su schermi grandi */
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    height: fit-content; /* Si adatta al contenuto */
+}
+
+.sidebar h2 {
+    color: var(--primary-blue);
+    margin-top: 0;
+}
+
+#leaderboard table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#leaderboard th, #leaderboard td {
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#leaderboard th {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    font-weight: 600;
 }
 
 .day-section {
@@ -83,7 +124,7 @@ body {
 }
 
 .match-card {
-    background-color: var(--light-gray);
+    background-color: var(--match-card-color);
     padding: 1.5rem;
     border-radius: var(--border-radius);
     display: flex;
@@ -129,6 +170,12 @@ body {
 }
 
 /* Media query per schermi più piccoli */
+@media (max-width: 1024px) {
+    .main-content-container {
+        flex-direction: column; /* Impila il calendario e la classifica */
+    }
+}
+
 @media (max-width: 768px) {
     .matches-container {
         grid-template-columns: 1fr;
