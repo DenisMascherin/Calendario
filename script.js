@@ -10,6 +10,17 @@ const fantallenatori = {
     'BOLOGNA': 'Nicola Marano'
 };
 
+const teamLogos = {
+    'NAPOLI': 'Img/napoli.png',
+    'INTER': 'Img/inter.png',
+    'JUVENTUS': 'Img/juventus.png',
+    'ATALANTA': 'Img/atalanta.png',
+    'ROMA': 'Img/roma.png',
+    'LAZIO': 'Img/lazio.png',
+    'MILAN': 'Img/milan.png',
+    'BOLOGNA': 'Img/bologna.png'
+};
+
 const calendario = [
     // Giornata 1
     {
@@ -401,14 +412,18 @@ function createMatchCard(match) {
 
     const matchCard = document.createElement('div');
     matchCard.className = 'match-card';
-    
+
     let scoreHTML = '<div class="score">? - ?</div>';
     if (match.scoreCasa !== null && match.scoreOspite !== null) {
         scoreHTML = `<div class="score">${match.scoreCasa} - ${match.scoreOspite}</div>`;
     }
 
     matchCard.innerHTML = `
-        <div class="teams">${match.casa} - ${match.ospite}</div>
+        <div class="teams">
+            <img src="${teamLogos[match.casa]}" alt="${match.casa} logo" class="team-logo">
+            <span>vs</span>
+            <img src="${teamLogos[match.ospite]}" alt="${match.ospite} logo" class="team-logo">
+        </div>
         ${scoreHTML}
         <div class="fantallenatori">
             <span>${fantallenatoreCasa}</span> vs <span>${fantallenatoreOspite}</span>
@@ -484,7 +499,7 @@ function updateLeaderboard() {
                 teamCasa.golSubiti += match.scoreOspite;
                 teamOspite.golFatti += match.scoreOspite;
                 teamOspite.golSubiti += match.scoreCasa;
-                
+
                 // Aggiorna risultati e punti
                 if (match.scoreCasa > match.scoreOspite) {
                     teamCasa.punti += 3;
@@ -515,8 +530,13 @@ function updateLeaderboard() {
         ...teams[key]
     }));
 
-    // Ordina la classifica
-    sortedTeams.sort((a, b) => b.punti - a.punti);
+    // Ordina la classifica in base all'ordine personalizzato richiesto
+    const customOrder = ['INTER', 'NAPOLI', 'ROMA', 'LAZIO', 'JUVENTUS', 'MILAN', 'ATALANTA', 'BOLOGNA'];
+    sortedTeams.sort((a, b) => {
+        const indexA = customOrder.indexOf(a.squadra);
+        const indexB = customOrder.indexOf(b.squadra);
+        return indexA - indexB;
+    });
 
     // Crea la tabella HTML della classifica
     const leaderboardDiv = document.getElementById('leaderboard');
@@ -535,7 +555,10 @@ function updateLeaderboard() {
         tableHTML += `
             <tr>
                 <td>${index + 1}</td>
-                <td>${team.squadra}</td>
+                <td class="squadra-cell">
+                    <img src="${teamLogos[team.squadra]}" alt="${team.squadra} logo" class="team-logo-leaderboard">
+                    ${team.squadra}
+                </td>
                 <td>${team.punti}</td>
             </tr>
         `;
