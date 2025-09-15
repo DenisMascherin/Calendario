@@ -46,10 +46,10 @@ const calendario = [
     {
         giornata: 3,
         partite: [
-            { casa: 'NAPOLI', ospite: 'INTER', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null },
-            { casa: 'MILAN', ospite: 'LAZIO', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null },
-            { casa: 'ROMA', ospite: 'JUVENTUS', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null },
-            { casa: 'BOLOGNA', ospite: 'ATALANTA', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null }
+            { casa: 'NAPOLI', ospite: 'INTER', scoreCasa: 4, scoreOspite: 3, fantaPuntiCasa: null, fantaPuntiOspite: null },
+            { casa: 'MILAN', ospite: 'LAZIO', scoreCasa: 2, scoreOspite: 0, fantaPuntiCasa: null, fantaPuntiOspite: null },
+            { casa: 'ROMA', ospite: 'JUVENTUS', scoreCasa: 1, scoreOspite: 3, fantaPuntiCasa: null, fantaPuntiOspite: null },
+            { casa: 'BOLOGNA', ospite: 'ATALANTA', scoreCasa: 0, scoreOspite: 3, fantaPuntiCasa: null, fantaPuntiOspite: null }
         ]
     },
     // Giornata 4
@@ -119,7 +119,7 @@ const calendario = [
             { casa: 'INTER', ospite: 'NAPOLI', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null },
             { casa: 'LAZIO', ospite: 'MILAN', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null },
             { casa: 'JUVENTUS', ospite: 'ROMA', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null },
-            { casa: 'ATALANTA', ospite: 'BOLOGNA', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null }
+            { casa: 'ATALANTA', ospite: 'BOLOGNA', scoreCasa: null, fantaPuntiCasa: null, fantaPuntiOspite: null }
         ]
     },
     // Giornata 11
@@ -545,7 +545,7 @@ function updateLeaderboard() {
     // Converti l'oggetto in un array per ordinare
     const sortedTeams = Object.values(teams);
 
-    // Ordina la classifica in base ai punti, poi agli scontri diretti e infine ai fantapunti totali
+    // Ordina la classifica in base ai criteri specificati
     sortedTeams.sort((a, b) => {
         // Criterio 1: Punti
         if (b.punti !== a.punti) {
@@ -557,15 +557,21 @@ function updateLeaderboard() {
         calendario.forEach(day => {
             day.partite.forEach(match => {
                 if (match.scoreCasa !== null && match.scoreOspite !== null) {
-                    // Cerca la partita tra le due squadre
-                    if ((match.casa === a.squadra && match.ospite === b.squadra) || (match.casa === b.squadra && match.ospite === a.squadra)) {
-                        const scoreA = (match.casa === a.squadra) ? match.scoreCasa : match.scoreOspite;
-                        const scoreB = (match.casa === b.squadra) ? match.scoreCasa : match.scoreOspite;
-                        
-                        if (scoreA > scoreB) {
-                            scontroDirettoResult = -1; // a vince, a prima di b
-                        } else if (scoreA < scoreB) {
-                            scontroDirettoResult = 1; // b vince, b prima di a
+                    // Controlla se le due squadre sono tra le partecipanti
+                    const squadreInScontro = [a.squadra, b.squadra];
+                    if (squadreInScontro.includes(match.casa) && squadreInScontro.includes(match.ospite)) {
+                        if (match.casa === a.squadra) {
+                            if (match.scoreCasa > match.scoreOspite) {
+                                scontroDirettoResult = -1; // A vince lo scontro diretto
+                            } else if (match.scoreCasa < match.scoreOspite) {
+                                scontroDirettoResult = 1; // B vince lo scontro diretto
+                            }
+                        } else { // match.casa === b.squadra
+                            if (match.scoreCasa > match.scoreOspite) {
+                                scontroDirettoResult = 1; // B vince lo scontro diretto
+                            } else if (match.scoreCasa < match.scoreOspite) {
+                                scontroDirettoResult = -1; // A vince lo scontro diretto
+                            }
                         }
                     }
                 }
