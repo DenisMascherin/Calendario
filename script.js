@@ -46,10 +46,10 @@ const calendario = [
     {
         giornata: 3,
         partite: [
-            { casa: 'NAPOLI', ospite: 'INTER', scoreCasa: 4, scoreOspite: 3, fantaPuntiCasa: null, fantaPuntiOspite: null },
-            { casa: 'MILAN', ospite: 'LAZIO', scoreCasa: 2, scoreOspite: 0, fantaPuntiCasa: null, fantaPuntiOspite: null },
-            { casa: 'ROMA', ospite: 'JUVENTUS', scoreCasa: 1, scoreOspite: 3, fantaPuntiCasa: null, fantaPuntiOspite: null },
-            { casa: 'BOLOGNA', ospite: 'ATALANTA', scoreCasa: 0, scoreOspite: 3, fantaPuntiCasa: null, fantaPuntiOspite: null }
+            { casa: 'NAPOLI', ospite: 'INTER', scoreCasa: 4, scoreOspite: 3, fantaPuntiCasa: 79.5, fantaPuntiOspite: 73.5 },
+            { casa: 'MILAN', ospite: 'LAZIO', scoreCasa: 2, scoreOspite: 0, fantaPuntiCasa: 63, fantaPuntiOspite: 79.5 },
+            { casa: 'ROMA', ospite: 'JUVENTUS', scoreCasa: 2, scoreOspite: 3, fantaPuntiCasa: 67.5, fantaPuntiOspite: 64 },
+            { casa: 'BOLOGNA', ospite: 'ATALANTA', scoreCasa: 0, scoreOspite: 3, fantaPuntiCasa: 61.5, fantaPuntiOspite: 83 }
         ]
     },
     // Giornata 4
