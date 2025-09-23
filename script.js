@@ -47,8 +47,8 @@ const calendario = [
         giornata: 3,
         partite: [
             { casa: 'NAPOLI', ospite: 'INTER', scoreCasa: 4, scoreOspite: 3, fantaPuntiCasa: 79.5, fantaPuntiOspite: 73.5 },
-            { casa: 'MILAN', ospite: 'LAZIO', scoreCasa: 2, scoreOspite: 0, fantaPuntiCasa: 63, fantaPuntiOspite: 79.5 },
-            { casa: 'ROMA', ospite: 'JUVENTUS', scoreCasa: 2, scoreOspite: 3, fantaPuntiCasa: 67.5, fantaPuntiOspite: 64 },
+            { casa: 'MILAN', ospite: 'LAZIO', scoreCasa: 2, scoreOspite: 0, fantaPuntiCasa: 67.5, fantaPuntiOspite: 64 },
+            { casa: 'ROMA', ospite: 'JUVENTUS', scoreCasa: 2, scoreOspite: 3, fantaPuntiCasa: 63, fantaPuntiOspite: 79.5 },
             { casa: 'BOLOGNA', ospite: 'ATALANTA', scoreCasa: 0, scoreOspite: 3, fantaPuntiCasa: 61.5, fantaPuntiOspite: 83 }
         ]
     },
@@ -56,10 +56,10 @@ const calendario = [
     {
         giornata: 4,
         partite: [
-            { casa: 'INTER', ospite: 'BOLOGNA', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null },
-            { casa: 'ROMA', ospite: 'MILAN', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null },
-            { casa: 'NAPOLI', ospite: 'JUVENTUS', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null },
-            { casa: 'ATALANTA', ospite: 'LAZIO', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null }
+            { casa: 'INTER', ospite: 'BOLOGNA', scoreCasa: 3, scoreOspite: 4, fantaPuntiCasa: 65, fantaPuntiOspite: 79 },
+            { casa: 'ROMA', ospite: 'MILAN', scoreCasa: 1, scoreOspite: 3, fantaPuntiCasa: 67.5, fantaPuntiOspite: 84 },
+            { casa: 'NAPOLI', ospite: 'JUVENTUS', scoreCasa: 1, scoreOspite: 1, fantaPuntiCasa: 70, fantaPuntiOspite: 68.5 },
+            { casa: 'ATALANTA', ospite: 'LAZIO', scoreCasa: 3, scoreOspite: 0, fantaPuntiCasa: 80.5, fantaPuntiOspite: 55 }
         ]
     },
     // Giornata 5
@@ -119,7 +119,7 @@ const calendario = [
             { casa: 'INTER', ospite: 'NAPOLI', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null },
             { casa: 'LAZIO', ospite: 'MILAN', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null },
             { casa: 'JUVENTUS', ospite: 'ROMA', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null },
-            { casa: 'ATALANTA', ospite: 'BOLOGNA', scoreCasa: null, fantaPuntiCasa: null, fantaPuntiOspite: null }
+            { casa: 'ATALANTA', ospite: 'BOLOGNA', scoreCasa: null, scoreOspite: null, fantaPuntiCasa: null, fantaPuntiOspite: null }
         ]
     },
     // Giornata 11
@@ -468,6 +468,86 @@ function createDaySection(day) {
     container.appendChild(daySection);
 }
 
+// Funzione per calcolare gli scontri diretti tra squadre a pari punti
+function calculateHeadToHead(teams, teamsWithSamePoints) {
+    if (teamsWithSamePoints.length <= 1) return teamsWithSamePoints;
+
+    const h2hStats = {};
+    
+    // Inizializza statistiche scontri diretti
+    teamsWithSamePoints.forEach(team => {
+        h2hStats[team.squadra] = {
+            squadra: team.squadra,
+            punti: 0,
+            golFatti: 0,
+            golSubiti: 0,
+            differenzaReti: 0,
+            fantaPuntiTotali: 0,
+            originalTeam: team
+        };
+    });
+
+    // Calcola risultati degli scontri diretti
+    calendario.forEach(day => {
+        day.partite.forEach(match => {
+            if (match.scoreCasa !== null && match.scoreOspite !== null) {
+                const squadreInScontro = teamsWithSamePoints.map(t => t.squadra);
+                
+                if (squadreInScontro.includes(match.casa) && squadreInScontro.includes(match.ospite)) {
+                    const statsCasa = h2hStats[match.casa];
+                    const statsOspite = h2hStats[match.ospite];
+
+                    // Aggiorna gol
+                    statsCasa.golFatti += match.scoreCasa;
+                    statsCasa.golSubiti += match.scoreOspite;
+                    statsOspite.golFatti += match.scoreOspite;
+                    statsOspite.golSubiti += match.scoreCasa;
+
+                    // Aggiorna fantapunti
+                    if (match.fantaPuntiCasa !== null) {
+                        statsCasa.fantaPuntiTotali += match.fantaPuntiCasa;
+                    }
+                    if (match.fantaPuntiOspite !== null) {
+                        statsOspite.fantaPuntiTotali += match.fantaPuntiOspite;
+                    }
+
+                    // Aggiorna punti
+                    if (match.scoreCasa > match.scoreOspite) {
+                        statsCasa.punti += 3;
+                    } else if (match.scoreCasa < match.scoreOspite) {
+                        statsOspite.punti += 3;
+                    } else {
+                        statsCasa.punti += 1;
+                        statsOspite.punti += 1;
+                    }
+                }
+            }
+        });
+    });
+
+    // Calcola differenza reti per gli scontri diretti
+    Object.values(h2hStats).forEach(stat => {
+        stat.differenzaReti = stat.golFatti - stat.golSubiti;
+    });
+
+    // Ordina per scontri diretti
+    const sortedH2H = Object.values(h2hStats).sort((a, b) => {
+        // Punti negli scontri diretti
+        if (b.punti !== a.punti) return b.punti - a.punti;
+        
+        // Fantapunti negli scontri diretti
+        if (b.fantaPuntiTotali !== a.fantaPuntiTotali) return b.fantaPuntiTotali - a.fantaPuntiTotali;
+        
+        // Differenza reti negli scontri diretti
+        if (b.differenzaReti !== a.differenzaReti) return b.differenzaReti - a.differenzaReti;
+        
+        // Gol fatti negli scontri diretti
+        return b.golFatti - a.golFatti;
+    });
+
+    return sortedH2H.map(stat => stat.originalTeam);
+}
+
 // Funzione per calcolare e aggiornare la classifica
 function updateLeaderboard() {
     const teams = {};
@@ -543,58 +623,47 @@ function updateLeaderboard() {
     }
 
     // Converti l'oggetto in un array per ordinare
-    const sortedTeams = Object.values(teams);
+    let sortedTeams = Object.values(teams);
 
-    // Ordina la classifica in base ai criteri specificati
-    sortedTeams.sort((a, b) => {
-        // Criterio 1: Punti
-        if (b.punti !== a.punti) {
-            return b.punti - a.punti;
+    // Raggruppa squadre per punti e applica scontri diretti
+    const pointsGroups = {};
+    sortedTeams.forEach(team => {
+        if (!pointsGroups[team.punti]) {
+            pointsGroups[team.punti] = [];
         }
-
-        // Criterio 2: Scontri diretti
-        let scontroDirettoResult = 0;
-        calendario.forEach(day => {
-            day.partite.forEach(match => {
-                if (match.scoreCasa !== null && match.scoreOspite !== null) {
-                    // Controlla se le due squadre sono tra le partecipanti
-                    const squadreInScontro = [a.squadra, b.squadra];
-                    if (squadreInScontro.includes(match.casa) && squadreInScontro.includes(match.ospite)) {
-                        if (match.casa === a.squadra) {
-                            if (match.scoreCasa > match.scoreOspite) {
-                                scontroDirettoResult = -1; // A vince lo scontro diretto
-                            } else if (match.scoreCasa < match.scoreOspite) {
-                                scontroDirettoResult = 1; // B vince lo scontro diretto
-                            }
-                        } else { // match.casa === b.squadra
-                            if (match.scoreCasa > match.scoreOspite) {
-                                scontroDirettoResult = 1; // B vince lo scontro diretto
-                            } else if (match.scoreCasa < match.scoreOspite) {
-                                scontroDirettoResult = -1; // A vince lo scontro diretto
-                            }
-                        }
-                    }
-                }
-            });
-        });
-        
-        if (scontroDirettoResult !== 0) {
-            return scontroDirettoResult;
-        }
-
-        // Criterio 3: Fantapunti totali
-        if (b.fantaPuntiTotali !== a.fantaPuntiTotali) {
-            return b.fantaPuntiTotali - a.fantaPuntiTotali;
-        }
-
-        // Criterio 4: Differenza Reti
-        if (b.differenzaReti !== a.differenzaReti) {
-            return b.differenzaReti - a.differenzaReti;
-        }
-
-        // Criterio 5: Gol Fatti
-        return b.golFatti - a.golFatti;
+        pointsGroups[team.punti].push(team);
     });
+
+    // Ordina ciascun gruppo per scontri diretti
+    let finalSortedTeams = [];
+    Object.keys(pointsGroups)
+        .sort((a, b) => parseInt(b) - parseInt(a)) // Ordina per punti decrescenti
+        .forEach(points => {
+            const teamsWithSamePoints = pointsGroups[points];
+            
+            if (teamsWithSamePoints.length > 1) {
+                // Applica scontri diretti
+                const sortedByH2H = calculateHeadToHead(teams, teamsWithSamePoints);
+                
+                // Se ci sono ancora squadre pari dopo scontri diretti, usa altri criteri
+                sortedByH2H.sort((a, b) => {
+                    // Fantapunti totali generali
+                    if (b.fantaPuntiTotali !== a.fantaPuntiTotali) {
+                        return b.fantaPuntiTotali - a.fantaPuntiTotali;
+                    }
+                    // Differenza reti generale
+                    if (b.differenzaReti !== a.differenzaReti) {
+                        return b.differenzaReti - a.differenzaReti;
+                    }
+                    // Gol fatti generali
+                    return b.golFatti - a.golFatti;
+                });
+                
+                finalSortedTeams.push(...sortedByH2H);
+            } else {
+                finalSortedTeams.push(...teamsWithSamePoints);
+            }
+        });
 
     // Crea la tabella HTML della classifica
     const leaderboardDiv = document.getElementById('leaderboard');
@@ -613,7 +682,7 @@ function updateLeaderboard() {
             </thead>
             <tbody>
     `;
-    sortedTeams.forEach((team, index) => {
+    finalSortedTeams.forEach((team, index) => {
         tableHTML += `
             <tr>
                 <td>${index + 1}</td>
