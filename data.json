@@ -1,0 +1,1430 @@
+{
+  "fantallenatori": {
+    "NAPOLI": "Mattia Beltrame",
+    "INTER": "Federico Burello",
+    "JUVENTUS": "Denis Mascherin",
+    "ATALANTA": "Kevin Di Bernardo",
+    "ROMA": "Alex Beltrame",
+    "LAZIO": "Cristian Tartaro",
+    "MILAN": "Lorenzo Moro",
+    "BOLOGNA": "Nicola Marano"
+  },
+  "teamLogos": {
+    "NAPOLI": "Img/napoli.png",
+    "INTER": "Img/inter.png",
+    "JUVENTUS": "Img/juventus.png",
+    "ATALANTA": "Img/atalanta.png",
+    "ROMA": "Img/roma.png",
+    "LAZIO": "Img/lazio.png",
+    "MILAN": "Img/milan.png",
+    "BOLOGNA": "Img/bologna.png"
+  },
+  "calendario": [
+    {
+      "giornata": 1,
+      "partite": [
+        {
+          "casa": "MILAN",
+          "ospite": "JUVENTUS",
+          "scoreCasa": 1,
+          "scoreOspite": 2,
+          "fantaPuntiCasa": 58,
+          "fantaPuntiOspite": 77
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "BOLOGNA",
+          "scoreCasa": 2,
+          "scoreOspite": 0,
+          "fantaPuntiCasa": 79,
+          "fantaPuntiOspite": 65
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "LAZIO",
+          "scoreCasa": 2,
+          "scoreOspite": 0,
+          "fantaPuntiCasa": 76,
+          "fantaPuntiOspite": 59.5
+        },
+        {
+          "casa": "INTER",
+          "ospite": "ATALANTA",
+          "scoreCasa": 4,
+          "scoreOspite": 3,
+          "fantaPuntiCasa": 89,
+          "fantaPuntiOspite": 62
+        }
+      ]
+    },
+    {
+      "giornata": 2,
+      "partite": [
+        {
+          "casa": "MILAN",
+          "ospite": "BOLOGNA",
+          "scoreCasa": 2,
+          "scoreOspite": 1,
+          "fantaPuntiCasa": 66.5,
+          "fantaPuntiOspite": 72.5
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "NAPOLI",
+          "scoreCasa": 0,
+          "scoreOspite": 2,
+          "fantaPuntiCasa": 64.5,
+          "fantaPuntiOspite": 60.5
+        },
+        {
+          "casa": "INTER",
+          "ospite": "ROMA",
+          "scoreCasa": 2,
+          "scoreOspite": 1,
+          "fantaPuntiCasa": 69.5,
+          "fantaPuntiOspite": 65
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "JUVENTUS",
+          "scoreCasa": 4,
+          "scoreOspite": 1,
+          "fantaPuntiCasa": 86.5,
+          "fantaPuntiOspite": 72
+        }
+      ]
+    },
+    {
+      "giornata": 3,
+      "partite": [
+        {
+          "casa": "NAPOLI",
+          "ospite": "INTER",
+          "scoreCasa": 4,
+          "scoreOspite": 3,
+          "fantaPuntiCasa": 79.5,
+          "fantaPuntiOspite": 73.5
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "LAZIO",
+          "scoreCasa": 2,
+          "scoreOspite": 0,
+          "fantaPuntiCasa": 67.5,
+          "fantaPuntiOspite": 64
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "JUVENTUS",
+          "scoreCasa": 2,
+          "scoreOspite": 3,
+          "fantaPuntiCasa": 63,
+          "fantaPuntiOspite": 79.5
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "ATALANTA",
+          "scoreCasa": 0,
+          "scoreOspite": 3,
+          "fantaPuntiCasa": 61.5,
+          "fantaPuntiOspite": 83
+        }
+      ]
+    },
+    {
+      "giornata": 4,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "BOLOGNA",
+          "scoreCasa": 3,
+          "scoreOspite": 4,
+          "fantaPuntiCasa": 65,
+          "fantaPuntiOspite": 79
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "MILAN",
+          "scoreCasa": 1,
+          "scoreOspite": 3,
+          "fantaPuntiCasa": 67.5,
+          "fantaPuntiOspite": 84
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "JUVENTUS",
+          "scoreCasa": 1,
+          "scoreOspite": 1,
+          "fantaPuntiCasa": 70,
+          "fantaPuntiOspite": 68.5
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "LAZIO",
+          "scoreCasa": 3,
+          "scoreOspite": 0,
+          "fantaPuntiCasa": 80.5,
+          "fantaPuntiOspite": 55
+        }
+      ]
+    },
+    {
+      "giornata": 5,
+      "partite": [
+        {
+          "casa": "LAZIO",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 6,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 7,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 8,
+      "partite": [
+        {
+          "casa": "ATALANTA",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 9,
+      "partite": [
+        {
+          "casa": "ROMA",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 10,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 11,
+      "partite": [
+        {
+          "casa": "BOLOGNA",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 12,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 13,
+      "partite": [
+        {
+          "casa": "MILAN",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 14,
+      "partite": [
+        {
+          "casa": "JUVENTUS",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 15,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 16,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 17,
+      "partite": [
+        {
+          "casa": "NAPOLI",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 18,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 19,
+      "partite": [
+        {
+          "casa": "LAZIO",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 20,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 21,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 22,
+      "partite": [
+        {
+          "casa": "ATALANTA",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 23,
+      "partite": [
+        {
+          "casa": "ROMA",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 24,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 25,
+      "partite": [
+        {
+          "casa": "BOLOGNA",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 26,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 27,
+      "partite": [
+        {
+          "casa": "MILAN",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 28,
+      "partite": [
+        {
+          "casa": "JUVENTUS",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 29,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 30,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 31,
+      "partite": [
+        {
+          "casa": "NAPOLI",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 32,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 33,
+      "partite": [
+        {
+          "casa": "LAZIO",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "MILAN",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 34,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ROMA",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 35,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "JUVENTUS",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 36,
+      "partite": [
+        {
+          "casa": "ATALANTA",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 37,
+      "partite": [
+        {
+          "casa": "ROMA",
+          "ospite": "INTER",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "BOLOGNA",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "LAZIO",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "NAPOLI",
+          "ospite": "ATALANTA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    },
+    {
+      "giornata": 38,
+      "partite": [
+        {
+          "casa": "INTER",
+          "ospite": "NAPOLI",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "LAZIO",
+          "ospite": "MILAN",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "JUVENTUS",
+          "ospite": "ROMA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        },
+        {
+          "casa": "ATALANTA",
+          "ospite": "BOLOGNA",
+          "scoreCasa": null,
+          "scoreOspite": null,
+          "fantaPuntiCasa": null,
+          "fantaPuntiOspite": null
+        }
+      ]
+    }
+  ]
+}
