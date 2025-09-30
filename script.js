@@ -81,83 +81,97 @@ async function initializeApp() {
     }
 
     // Funzione per calcolare gli scontri diretti tra squadre a pari punti
-    function calculateHeadToHead(teams, teamsWithSamePoints) {
+    function calculateHeadToHead(teamsWithSamePoints, allMatches) {
         if (teamsWithSamePoints.length <= 1) return teamsWithSamePoints;
 
+        const squadreNomi = teamsWithSamePoints.map(t => t.squadra);
         const h2hStats = {};
         
         // Inizializza statistiche scontri diretti
         teamsWithSamePoints.forEach(team => {
             h2hStats[team.squadra] = {
-                squadra: team.squadra,
                 punti: 0,
                 golFatti: 0,
                 golSubiti: 0,
-                differenzaReti: 0,
-                fantaPuntiTotali: 0,
-                originalTeam: team
+                fantaPuntiTotali: 0
             };
         });
 
-        // Calcola risultati degli scontri diretti
-        calendario.forEach(day => {
-            day.partite.forEach(match => {
-                if (match.scoreCasa !== null && match.scoreOspite !== null) {
-                    const squadreInScontro = teamsWithSamePoints.map(t => t.squadra);
-                    
-                    if (squadreInScontro.includes(match.casa) && squadreInScontro.includes(match.ospite)) {
-                        const statsCasa = h2hStats[match.casa];
-                        const statsOspite = h2hStats[match.ospite];
+        // Calcola risultati degli scontri diretti solo tra le squadre coinvolte
+        allMatches.forEach(match => {
+            if (match.scoreCasa !== null && match.scoreOspite !== null &&
+                squadreNomi.includes(match.casa) && squadreNomi.includes(match.ospite)) {
+                
+                const statsCasa = h2hStats[match.casa];
+                const statsOspite = h2hStats[match.ospite];
 
-                        // Aggiorna gol
-                        statsCasa.golFatti += match.scoreCasa;
-                        statsCasa.golSubiti += match.scoreOspite;
-                        statsOspite.golFatti += match.scoreOspite;
-                        statsOspite.golSubiti += match.scoreCasa;
+                // Aggiorna gol
+                statsCasa.golFatti += match.scoreCasa;
+                statsCasa.golSubiti += match.scoreOspite;
+                statsOspite.golFatti += match.scoreOspite;
+                statsOspite.golSubiti += match.scoreCasa;
 
-                        // Aggiorna fantapunti
-                        if (match.fantaPuntiCasa !== null) {
-                            statsCasa.fantaPuntiTotali += match.fantaPuntiCasa;
-                        }
-                        if (match.fantaPuntiOspite !== null) {
-                            statsOspite.fantaPuntiTotali += match.fantaPuntiOspite;
-                        }
-
-                        // Aggiorna punti
-                        if (match.scoreCasa > match.scoreOspite) {
-                            statsCasa.punti += 3;
-                        } else if (match.scoreCasa < match.scoreOspite) {
-                            statsOspite.punti += 3;
-                        } else {
-                            statsCasa.punti += 1;
-                            statsOspite.punti += 1;
-                        }
-                    }
+                // Aggiorna fantapunti
+                if (match.fantaPuntiCasa !== null) {
+                    statsCasa.fantaPuntiTotali += match.fantaPuntiCasa;
                 }
-            });
+                if (match.fantaPuntiOspite !== null) {
+                    statsOspite.fantaPuntiTotali += match.fantaPuntiOspite;
+                }
+
+                // Aggiorna punti
+                if (match.scoreCasa > match.scoreOspite) {
+                    statsCasa.punti += 3;
+                } else if (match.scoreCasa < match.scoreOspite) {
+                    statsOspite.punti += 3;
+                } else {
+                    statsCasa.punti += 1;
+                    statsOspite.punti += 1;
+                }
+            }
         });
 
-        // Calcola differenza reti per gli scontri diretti
-        Object.values(h2hStats).forEach(stat => {
-            stat.differenzaReti = stat.golFatti - stat.golSubiti;
-        });
+        // Ordina per criteri scontri diretti
+        return teamsWithSamePoints.sort((a, b) => {
+            const statsA = h2hStats[a.squadra];
+            const statsB = h2hStats[b.squadra];
 
-        // Ordina per scontri diretti
-        const sortedH2H = Object.values(h2hStats).sort((a, b) => {
-            // Punti negli scontri diretti
-            if (b.punti !== a.punti) return b.punti - a.punti;
-            
-            // Fantapunti negli scontri diretti
-            if (b.fantaPuntiTotali !== a.fantaPuntiTotali) return b.fantaPuntiTotali - a.fantaPuntiTotali;
-            
-            // Differenza reti negli scontri diretti
-            if (b.differenzaReti !== a.differenzaReti) return b.differenzaReti - a.differenzaReti;
-            
-            // Gol fatti negli scontri diretti
+            // 1. Punti negli scontri diretti
+            if (statsB.punti !== statsA.punti) {
+                return statsB.punti - statsA.punti;
+            }
+
+            // 2. Differenza reti negli scontri diretti
+            const drA = statsA.golFatti - statsA.golSubiti;
+            const drB = statsB.golFatti - statsB.golSubiti;
+            if (drB !== drA) {
+                return drB - drA;
+            }
+
+            // 3. Gol fatti negli scontri diretti
+            if (statsB.golFatti !== statsA.golFatti) {
+                return statsB.golFatti - statsA.golFatti;
+            }
+
+            // 4. FantaPunti negli scontri diretti
+            if (statsB.fantaPuntiTotali !== statsA.fantaPuntiTotali) {
+                return statsB.fantaPuntiTotali - statsA.fantaPuntiTotali;
+            }
+
+            // 5. Criteri generali (già presenti nel team object)
+            // FantaPunti totali generali
+            if (b.fantaPuntiTotali !== a.fantaPuntiTotali) {
+                return b.fantaPuntiTotali - a.fantaPuntiTotali;
+            }
+
+            // Differenza reti generale
+            if (b.differenzaReti !== a.differenzaReti) {
+                return b.differenzaReti - a.differenzaReti;
+            }
+
+            // Gol fatti generali
             return b.golFatti - a.golFatti;
         });
-
-        return sortedH2H.map(stat => stat.originalTeam);
     }
 
     // Funzione per calcolare e aggiornare la classifica
@@ -185,48 +199,54 @@ async function initializeApp() {
             teams['BOLOGNA'].punti = -2;
         }
 
-        // Calcola i punti e fantapunti in base ai risultati
+        // Raccoglie tutte le partite
+        const allMatches = [];
         calendario.forEach(day => {
             day.partite.forEach(match => {
-                if (match.scoreCasa !== null && match.scoreOspite !== null) {
-                    const teamCasa = teams[match.casa];
-                    const teamOspite = teams[match.ospite];
-
-                    // Aggiorna partite giocate
-                    teamCasa.giocate++;
-                    teamOspite.giocate++;
-
-                    // Aggiorna gol
-                    teamCasa.golFatti += match.scoreCasa;
-                    teamCasa.golSubiti += match.scoreOspite;
-                    teamOspite.golFatti += match.scoreOspite;
-                    teamOspite.golSubiti += match.scoreCasa;
-
-                    // Aggiorna fantapunti totali
-                    if (match.fantaPuntiCasa !== null) {
-                        teamCasa.fantaPuntiTotali += match.fantaPuntiCasa;
-                    }
-                    if (match.fantaPuntiOspite !== null) {
-                        teamOspite.fantaPuntiTotali += match.fantaPuntiOspite;
-                    }
-
-                    // Aggiorna risultati e punti
-                    if (match.scoreCasa > match.scoreOspite) {
-                        teamCasa.punti += 3;
-                        teamCasa.vinte++;
-                        teamOspite.perse++;
-                    } else if (match.scoreCasa < match.scoreOspite) {
-                        teamOspite.punti += 3;
-                        teamOspite.vinte++;
-                        teamCasa.perse++;
-                    } else {
-                        teamCasa.punti += 1;
-                        teamOspite.punti += 1;
-                        teamCasa.pareggiate++;
-                        teamOspite.pareggiate++;
-                    }
-                }
+                allMatches.push(match);
             });
+        });
+
+        // Calcola i punti e fantapunti in base ai risultati
+        allMatches.forEach(match => {
+            if (match.scoreCasa !== null && match.scoreOspite !== null) {
+                const teamCasa = teams[match.casa];
+                const teamOspite = teams[match.ospite];
+
+                // Aggiorna partite giocate
+                teamCasa.giocate++;
+                teamOspite.giocate++;
+
+                // Aggiorna gol
+                teamCasa.golFatti += match.scoreCasa;
+                teamCasa.golSubiti += match.scoreOspite;
+                teamOspite.golFatti += match.scoreOspite;
+                teamOspite.golSubiti += match.scoreCasa;
+
+                // Aggiorna fantapunti totali
+                if (match.fantaPuntiCasa !== null) {
+                    teamCasa.fantaPuntiTotali += match.fantaPuntiCasa;
+                }
+                if (match.fantaPuntiOspite !== null) {
+                    teamOspite.fantaPuntiTotali += match.fantaPuntiOspite;
+                }
+
+                // Aggiorna risultati e punti
+                if (match.scoreCasa > match.scoreOspite) {
+                    teamCasa.punti += 3;
+                    teamCasa.vinte++;
+                    teamOspite.perse++;
+                } else if (match.scoreCasa < match.scoreOspite) {
+                    teamOspite.punti += 3;
+                    teamOspite.vinte++;
+                    teamCasa.perse++;
+                } else {
+                    teamCasa.punti += 1;
+                    teamOspite.punti += 1;
+                    teamCasa.pareggiate++;
+                    teamOspite.pareggiate++;
+                }
+            }
         });
 
         // Calcola la differenza reti
@@ -234,43 +254,25 @@ async function initializeApp() {
             teams[team].differenzaReti = teams[team].golFatti - teams[team].golSubiti;
         }
 
-        // Converti l'oggetto in un array per ordinare
-        let sortedTeams = Object.values(teams);
-
-        // Raggruppa squadre per punti e applica scontri diretti
+        // Raggruppa squadre per punti
         const pointsGroups = {};
-        sortedTeams.forEach(team => {
+        Object.values(teams).forEach(team => {
             if (!pointsGroups[team.punti]) {
                 pointsGroups[team.punti] = [];
             }
             pointsGroups[team.punti].push(team);
         });
 
-        // Ordina ciascun gruppo per scontri diretti
+        // Ordina e applica scontri diretti dove necessario
         let finalSortedTeams = [];
         Object.keys(pointsGroups)
-            .sort((a, b) => parseInt(b) - parseInt(a)) // Ordina per punti decrescenti
+            .sort((a, b) => parseInt(b) - parseInt(a))
             .forEach(points => {
                 const teamsWithSamePoints = pointsGroups[points];
                 
                 if (teamsWithSamePoints.length > 1) {
                     // Applica scontri diretti
-                    const sortedByH2H = calculateHeadToHead(teams, teamsWithSamePoints);
-                    
-                    // Se ci sono ancora squadre pari dopo scontri diretti, usa altri criteri
-                    sortedByH2H.sort((a, b) => {
-                        // Fantapunti totali generali
-                        if (b.fantaPuntiTotali !== a.fantaPuntiTotali) {
-                            return b.fantaPuntiTotali - a.fantaPuntiTotali;
-                        }
-                        // Differenza reti generale
-                        if (b.differenzaReti !== a.differenzaReti) {
-                            return b.differenzaReti - a.differenzaReti;
-                        }
-                        // Gol fatti generali
-                        return b.golFatti - a.golFatti;
-                    });
-                    
+                    const sortedByH2H = calculateHeadToHead(teamsWithSamePoints, allMatches);
                     finalSortedTeams.push(...sortedByH2H);
                 } else {
                     finalSortedTeams.push(...teamsWithSamePoints);
@@ -306,7 +308,7 @@ async function initializeApp() {
                     <td>${team.fantaPuntiTotali.toFixed(1)}</td>
                     <td>${team.golFatti}</td>
                     <td>${team.golSubiti}</td>
-                    <td>${team.differenzaReti}</td>
+                    <td>${team.differenzaReti > 0 ? '+' : ''}${team.differenzaReti}</td>
                 </tr>
             `;
         });
