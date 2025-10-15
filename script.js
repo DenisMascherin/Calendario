@@ -299,16 +299,16 @@ async function initializeApp() {
         finalSortedTeams.forEach((team, index) => {
             tableHTML += `
                 <tr>
-                    <td>${index + 1}</td>
-                    <td class="squadra-cell">
+                    <td data-label="Pos.">${index + 1}</td>
+                    <td class="squadra-cell" data-label="Squadra">
                         <img src="${teamLogos[team.squadra]}" alt="${team.squadra} logo" class="team-logo-leaderboard">
                         ${team.squadra}
                     </td>
-                    <td>${team.punti}</td>
-                    <td>${team.fantaPuntiTotali.toFixed(1)}</td>
-                    <td>${team.golFatti}</td>
-                    <td>${team.golSubiti}</td>
-                    <td>${team.differenzaReti > 0 ? '+' : ''}${team.differenzaReti}</td>
+                    <td data-label="Punti">${team.punti}</td>
+                    <td data-label="FantaPunti">${team.fantaPuntiTotali.toFixed(1)}</td>
+                    <td data-label="GF">${team.golFatti}</td>
+                    <td data-label="GS">${team.golSubiti}</td>
+                    <td data-label="DR">${team.differenzaReti > 0 ? '+' : ''}${team.differenzaReti}</td>
                 </tr>
             `;
         });

@@ -1,17 +1,19 @@
 :root {
-    --primary-blue: #007bff;
-    --secondary-blue: #0056b3;
+    --primary-color: #0d47a1; /* Un blu più profondo e moderno */
+    --secondary-color: #1976d2;
+    --accent-color: #42a5f5;
     --white: #ffffff;
-    --light-gray: #f4f4f4;
-    --match-card-color: #e8f4fd;
+    --background-color: #f5f7fa; /* Sfondo leggermente più freddo */
+    --card-background: #ffffff;
     --dark-text: #333;
-    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --light-text: #666;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Ombra più morbida */
     --border-radius: 12px;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--light-gray);
+    background-color: var(--background-color);
     color: var(--dark-text);
     margin: 0;
     padding: 0;
@@ -19,7 +21,7 @@ body {
 }
 
 .header {
-    background-color: var(--primary-blue);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
     text-align: center;
     padding: 2.5rem 1rem;
@@ -67,16 +69,25 @@ body {
 
 .sidebar {
     flex: 1;
-    background-color: var(--white);
+    background-color: var(--card-background);
     padding: 1.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     height: fit-content;
+    /* Aggiunto per rendere la classifica fissa durante lo scroll su desktop */
+    position: sticky;
+    top: 2rem;
 }
 
 .sidebar h2 {
-    color: var(--primary-blue);
+    color: var(--primary-color);
     margin-top: 0;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+.leaderboard-wrapper {
+    /* Rimosso overflow-x: auto per permettere alla tabella di adattarsi in larghezza */
 }
 
 #leaderboard table {
@@ -87,14 +98,35 @@ body {
 
 #leaderboard th, #leaderboard td {
     padding: 0.75rem 0.5rem;
-    text-align: left;
+    text-align: center; /* Centro i dati per un look più pulito */
+    word-break: break-word; /* Permette al testo di andare a capo */
     border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+/* Allineo a sinistra la colonna squadra */
+#leaderboard th:nth-child(2),
+#leaderboard td:nth-child(2) {
+    text-align: left;
 }
 
 #leaderboard th {
-    background-color: var(--primary-blue);
+    background-color: var(--primary-color);
     color: var(--white);
     font-weight: 600;
+}
+
+/* Stile per le righe della tabella */
+#leaderboard tbody tr {
+    transition: background-color 0.2s ease-in-out;
+}
+
+#leaderboard tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Colore alternato per le righe */
+}
+
+#leaderboard tbody tr:hover {
+    background-color: #e9ecef; /* Effetto hover sulle righe */
 }
 
 .squadra-cell {
@@ -109,7 +141,7 @@ body {
 }
 
 .day-section {
-    background-color: var(--white);
+    background-color: var(--card-background);
     padding: 1rem 1.5rem;
     margin-bottom: 1rem;
     border-radius: var(--border-radius);
@@ -120,35 +152,41 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
     cursor: pointer;
 }
 
 .day-header h2 {
     margin: 0;
     font-size: 1.5rem;
-    color: var(--primary-blue);
+    color: var(--primary-color);
 }
 
 .toggle-icon {
     font-size: 2rem;
-    color: var(--secondary-blue);
+    color: var(--secondary-color);
     transition: transform 0.3s ease;
+    font-weight: 300;
 }
 
 .matches-container {
-    display: none;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    animation: fadeIn 0.5s ease-in-out forwards;
+    max-height: 0;
+    overflow: hidden;
+    /* Aggiungo padding per distanziare le card dal bordo quando si scrolla */
+    padding: 0.2rem;
+    transition: max-height 0.5s ease-in-out, margin-top 0.5s ease-in-out;
 }
 
 .matches-container.open {
-    display: grid;
+    max-height: 65vh; /* Altezza massima pari al 65% dello schermo */
+    overflow-y: auto; /* Abilita lo scroll verticale se il contenuto supera l'altezza */
+    margin-top: 1.5rem;
 }
 
 .match-card {
-    background-color: var(--match-card-color);
+    background-color: var(--background-color);
     padding: 1.5rem;
     border-radius: var(--border-radius);
     display: flex;
@@ -181,24 +219,17 @@ body {
 .score {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
 
 .fantallenatori {
     font-size: 0.9rem;
-    color: #666;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    color: var(--light-text);
+    /* Aggiunto per gestire testi lunghi e prevenire overflow */
+    word-break: break-word;
+    line-height: 1.4;
+    max-width: 100%;
 }
 
 @media (max-width: 1024px) {
@@ -208,7 +239,41 @@ body {
 }
 
 @media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8rem; /* Riduco la dimensione del titolo su mobile */
+        line-height: 1.2;
+    }
+
+    .header p {
+        font-size: 1rem; /* Riduco la dimensione del sottotitolo */
+    }
+
     .matches-container {
         grid-template-columns: 1fr;
+    }
+
+    #leaderboard th, #leaderboard td {
+        padding: 0.6rem 0.2rem; /* Riduco il padding per compattare */
+        font-size: 0.85rem;
+        text-align: center;
+        white-space: normal; /* Assicura che il testo vada a capo */
+    }
+
+    .team-logo-leaderboard {
+        width: 20px;
+        height: 20px;
+    }
+
+    .squadra-cell {
+        text-align: left;
+    }
+
+    .teams {
+        gap: 0.5rem;
+    }
+
+    .team-logo {
+        width: 35px;
+        height: 35px;
     }
 }
