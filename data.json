@@ -10,14 +10,14 @@
     "BOLOGNA": "Nicola Marano"
   },
   "teamLogos": {
-    "NAPOLI": "Img/napoli.png",
-    "INTER": "Img/inter.png",
-    "JUVENTUS": "Img/juventus.png",
-    "ATALANTA": "Img/atalanta.png",
-    "ROMA": "Img/roma.png",
-    "LAZIO": "Img/lazio.png",
-    "MILAN": "Img/milan.png",
-    "BOLOGNA": "Img/bologna.png"
+    "NAPOLI": "img/napoli.png",
+    "INTER": "img/inter.png",
+    "JUVENTUS": "img/juventus.png",
+    "ATALANTA": "img/atalanta.png",
+    "ROMA": "img/roma.png",
+    "LAZIO": "img/lazio.png",
+    "MILAN": "img/milan.png",
+    "BOLOGNA": "img/bologna.png"
   },
   "calendario": [
     {
